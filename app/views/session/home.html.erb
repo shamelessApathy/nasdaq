@@ -1,0 +1,13 @@
+<h1>this is the home page!</h1>
+<%= 
+	if session[:user]
+		user = session[:user][0] 
+    	user['username'] 
+	end
+%>
+
+<%= 
+	if session[:user]
+		link_to 'logout', controller: 'session', action: 'logout'
+	end
+%>

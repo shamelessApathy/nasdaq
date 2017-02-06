@@ -1,0 +1,13 @@
+<h1>New Portfolio</h1>
+
+
+
+<form action='/portfolios/create' method='POST' name='portfolio'>
+	<label>Name</label>
+	<input type='text' name='portfolio[name]'>
+	<button type='submit'>Submit</button>
+	<%= token_tag nil %>
+
+</form>
+
+

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+ 
+def match_password(login_password="")
+  encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
+end
   def new
   	@user = User.new
   end

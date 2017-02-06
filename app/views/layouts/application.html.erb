@@ -3,12 +3,24 @@
   <head>
     <title>Nasdaq</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class='nav_container'>
+  	<%= 
+  		if session[:user]
+  			link_to 'Log Out', '/logout', class:"logout_link"
+  			link_to 'Portfolio', '/portfolio', class:"nav_link"
+  		end
+  	%>
+  	<%= 
+  		if !session[:user]
+  			link_to 'Log In', '/login', class:"login_link"
+  		end
+  	%>
+  </div>
     <%= yield %>
   </body>
 </html>

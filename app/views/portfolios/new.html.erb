@@ -2,12 +2,6 @@
 
 
 
-<form action='/portfolios/create' method='POST' name='portfolio'>
-	<label>Name</label>
-	<input type='text' name='portfolio[name]'>
-	<button type='submit'>Submit</button>
-	<%= token_tag nil %>
+<%= render 'form', portfolio: @portfolio %>
 
-</form>
-
-
+<%= link_to 'Back', portfolios_path %>

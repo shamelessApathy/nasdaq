@@ -59,7 +59,12 @@ class PortfoliosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ def portfolio_params
+      params.require(:portfolio).permit(:user, :name)
+    end
+  def add_stock
+    
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_portfolio
@@ -67,7 +72,5 @@ class PortfoliosController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def portfolio_params
-      params.require(:portfolio).permit(:name)
-    end
+   
 end

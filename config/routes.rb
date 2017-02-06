@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stocks
   resources :portfolios
   get 'users/new'
   get '/' => 'session#home'

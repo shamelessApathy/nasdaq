@@ -10,6 +10,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
+    return self
   end
 
   # GET /portfolios/new
@@ -19,8 +20,11 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios/1/edit
   def edit
+    @stock = Stock.new
   end
-
+  def self.stocks
+    @stocks = Stocks.all
+  end
   # POST /portfolios
   # POST /portfolios.json
   def create

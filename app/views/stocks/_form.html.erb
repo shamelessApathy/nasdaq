@@ -1,5 +1,5 @@
-<%= form_for(stock) do |f| %>
-  <% if stock.errors.any? %>
+<%= form_for(@stock) do |f| %>
+  <% if @stock.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
 
@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :portfolio %>
-    <%= f.number_field :portfolio %>
+    <%= f.label :portfolio_id %>
+    <%= f.number_field :portfolio_id %>
   </div>
 
   <div class="actions">

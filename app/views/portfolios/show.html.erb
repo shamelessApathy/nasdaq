@@ -9,13 +9,9 @@
   <strong>Name:</strong>
   <%= @portfolio.name %>
 </p>
-<p>
-  <strong>Stocks</strong>
-  <%= @portfolio.stocks.each do |element|
-  		element
-  	end
-   %>
-  </p>
+<%= render "stocks/table" %>
+ 
+ 
 
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>

@@ -22,9 +22,9 @@ class PortfoliosController < ApplicationController
   def edit
     @stock = Stock.new
   end
-  def self.stocks
-    @stocks = Stocks.all
-  end
+ # def self.stocks
+  #  @stocks = Stocks.select_all('ticker')
+  #end
   # POST /portfolios
   # POST /portfolios.json
   def create

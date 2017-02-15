@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20170204231633) do
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "portfolio_id"
     t.string   "ticker"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.decimal  "price",        precision: 10
+    t.boolean  "buy"
+    t.boolean  "sell"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id", using: :btree
   end
 

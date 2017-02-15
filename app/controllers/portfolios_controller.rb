@@ -67,7 +67,8 @@ class PortfoliosController < ApplicationController
       params.require(:portfolio).permit(:user, :name)
     end
   def add_stock
-    
+    @stock = Stock.new
+    render 'add_stock'
   end
   private
     # Use callbacks to share common setup or constraints between actions.

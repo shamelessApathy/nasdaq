@@ -16,6 +16,15 @@
     <%= f.text_field :ticker %>
   </div>
 
+    <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+    <div class="field">
+    <%= f.radio_button :buy , 'buy'  %>
+    <%= f.radio_button :sell, 'sell' %>
+    </div>
+
   <div class="field">
     <%= f.label :portfolio_id %>
     <%= f.number_field :portfolio_id %>

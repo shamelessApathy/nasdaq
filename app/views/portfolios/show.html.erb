@@ -12,6 +12,6 @@
 <%= render "stocks/table" %>
  
  
-
+<%= link_to 'Add Stock', "#{@portfolio.id}/stocks/new" %>
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>

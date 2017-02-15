@@ -9,6 +9,9 @@ class CreatePortfolios < ActiveRecord::Migration[5.0]
     create_table :stocks do |t|
     	t.belongs_to :portfolio, index: true
     	t.string :ticker
+      t.decimal :price
+      t.boolean :buy
+      t.boolean :sell
     	t.timestamps
   	end
 end

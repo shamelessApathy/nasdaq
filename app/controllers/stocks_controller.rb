@@ -1,6 +1,9 @@
 class StocksController < ApplicationController
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
+  #Render Add Stock Form
+  def add_stock
 
+  end
   # GET /stocks
   # GET /stocks.json
   def index
@@ -69,6 +72,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:ticker, :portfolio_id)
+      params.require(:stock).permit(:ticker, :portfolio_id, :price, :buy, :sell)
     end
 end

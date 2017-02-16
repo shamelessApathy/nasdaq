@@ -18,6 +18,7 @@ class StocksController < ApplicationController
   # GET /stocks/new
   def new
     @stock = Stock.new
+    @portfolios = Portfolio.all
   end
 
   # GET /stocks/1/edit
@@ -72,6 +73,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:ticker, :portfolio_id, :price, :buy, :sell)
+      params.require(:stock).permit(:ticker, :portfolio_id, :price, :buy, :sell, :quantity)
     end
 end

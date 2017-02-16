@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170204231633) do
     t.integer  "portfolio_id"
     t.string   "ticker"
     t.decimal  "price",        precision: 10
+    t.integer  "quantity"
     t.boolean  "buy"
     t.boolean  "sell"
     t.datetime "created_at",                  null: false

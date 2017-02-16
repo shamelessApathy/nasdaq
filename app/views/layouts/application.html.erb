@@ -17,9 +17,10 @@
   	%>
   	<%= 
   		if !session[:user]
-  			link_to 'Log In', '/login', class:"login_link"
-  		end
-  	%>
+        link_to 'Log In', '/login', class:"login_link"
+      end
+    %>
+    <%= link_to 'Create', '/user/new', class:"create_link"%>
   </div>
     <%= yield %>
   </body>

@@ -1,5 +1,16 @@
 <strong>Stocks</strong>
-  <%= @portfolio.stocks.each do |element|
-  	element
-  	end
-   %>
+<table class='stock-table'>
+	<tr>
+		<th>Ticker</th>
+		<th>Price</th>
+		<th>Quantity</th>
+		<th>Initial Cost</th>
+	</tr>
+  <% @portfolio.stocks.each do |element|%>
+  	<tr>
+  		<td><%=element[:ticker]%></td>
+  		<td><%=element[:price]%></td>
+  		<td><%=element[:quantity]%></td>
+  		<td><%= element[:quantity] * element[:price]%>
+  	</tr>
+  	<% 	end   %>

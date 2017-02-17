@@ -10,11 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :user, value: @user%>
-  <div class="field">
-    <%= f.label :user %>
-    <%= f.number_field :user %>
-  </div>
+  <%= f.hidden_field :user, value: @user[0]['user_id']%>
 
   <div class="field">
     <%= f.label :name %>
@@ -24,4 +20,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

@@ -2,7 +2,8 @@
 <table class='stock-table'>
 	<tr>
 		<th>Ticker</th>
-		<th>Price</th>
+		<th>Orig Price</th>
+    <th>Price</th>
 		<th>Quantity</th>
 		<th>Initial Cost</th>
 	</tr>
@@ -10,6 +11,7 @@
   	<tr>
   		<td><%=element[:ticker]%></td>
   		<td><%=element[:price]%></td>
+      <td>Placeholder</td>
   		<td><%=element[:quantity]%></td>
   		<td><%= element[:quantity] * element[:price]%>
   	</tr>

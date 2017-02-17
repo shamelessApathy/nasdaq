@@ -16,7 +16,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   def new
     @portfolio = Portfolio.new
-    @user = session[:user][:user_id]
+    @user = session[:user]
+
   end
 
   # GET /portfolios/1/edit

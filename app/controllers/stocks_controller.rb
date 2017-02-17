@@ -1,4 +1,5 @@
 class StocksController < ApplicationController
+  require "yahoo-finance"
   before_action :set_stock, only: [:show, :edit, :update, :destroy]
   #Render Add Stock Form
   def add_stock
@@ -13,6 +14,10 @@ class StocksController < ApplicationController
   # GET /stocks/1
   # GET /stocks/1.json
   def show
+    yahoo_client = YahooFinance::Client.new
+    data = yahoo_client.quotes(["MTN", "PFE"], [:ask, :bid, :last_trade_date])
+    @data = yahoo_client.is_a? Object
+    @portfolio = Portfolio.find(@stock.portfolio)
   end
 
   # GET /stocks/new

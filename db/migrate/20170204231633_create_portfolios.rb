@@ -11,14 +11,12 @@ class CreatePortfolios < ActiveRecord::Migration[5.0]
     	t.string :ticker
       t.decimal :price
       t.integer :quantity
+      t.integer :sector_id
       t.boolean :buy
       t.boolean :sell
     	t.timestamps
   	end
 
-    create_table :sectors do |t|
-      t.belongs_to :stocks
-      t.string :name
-    end
+
 end
 end

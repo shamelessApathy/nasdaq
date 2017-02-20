@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204231633) do
+ActiveRecord::Schema.define(version: 20170220044702) do
 
   create_table "portfolios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20170204231633) do
   end
 
   create_table "sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "stocks_id"
-    t.string  "name"
-    t.index ["stocks_id"], name: "index_sectors_on_stocks_id", using: :btree
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170204231633) do
     t.string   "ticker"
     t.decimal  "price",        precision: 10
     t.integer  "quantity"
+    t.integer  "sector_id"
     t.boolean  "buy"
     t.boolean  "sell"
     t.datetime "created_at",                  null: false

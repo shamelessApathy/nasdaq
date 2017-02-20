@@ -35,6 +35,11 @@
 <%= f.select(:portfolio_id) do %>
 <% portfolios_array = Portfolio.all.map { |portfolio| [portfolio.name, portfolio.id] } %>
 <%= options_for_select(portfolios_array) %>
+<% end %>
+<%= f.label 'Sector' %>
+<%= f.select(:sector_id) do %>
+<% sectors_array = Sector.all.map { |sector| [sector.name, sector.id] } %>
+<%= options_for_select(sectors_array) %>
   <% end %>
 
 

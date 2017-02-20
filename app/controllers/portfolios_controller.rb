@@ -7,10 +7,12 @@ class PortfoliosController < ApplicationController
   end
   def stock_quote
     @stocks = Stock.all
+    if @stocks.count > 0
     @string = ''
     @stocks.each do |element|
       @string = @string + element[:ticker] + ','
     end
+  end
     @quote = StockQuote::Stock.quote(@string)
     return @quote
   end

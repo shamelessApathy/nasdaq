@@ -10,7 +10,9 @@
   <strong>Name:</strong>
   <%= @portfolio.name %>
 </p>
+<% if @stocks.count > 0 %>
 <%= render "stocks/table" %>
+<% end %>
 
  
  

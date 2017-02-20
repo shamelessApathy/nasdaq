@@ -9,6 +9,7 @@
   <col style="width:80px">
   <col style="width:80px">
   <col style="width:80px">
+  <col style="width:80px">
   </colgroup>
   <tbody>
   	<tr>
@@ -19,6 +20,7 @@
       <th>Test Ticker</th>
   		<th>Initial Cost</th>
       <th>Change</th>
+      <th>Sector</th>
   	</tr>
 <% @portfolio.stocks.zip(@quote) %>
 <% @portfolio.stocks.zip(@quote).each do |stock, quote|%>
@@ -32,6 +34,7 @@
       <td><%=stock[:ticker]%></td>
       <td><%= stock[:quantity] * stock[:price]%></td>
       <td class="<%= @change_class %>"><%= quote.change %></td>
+      <td><%= Sector.find(stock[:sector_id]).name %></td>
     </tr>
     <%= @quote.each do |element|
       element

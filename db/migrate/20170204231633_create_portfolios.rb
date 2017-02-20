@@ -15,5 +15,10 @@ class CreatePortfolios < ActiveRecord::Migration[5.0]
       t.boolean :sell
     	t.timestamps
   	end
+
+    create_table :sectors do |t|
+      t.belongs_to :stocks
+      t.string :name
+    end
 end
 end

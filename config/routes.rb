@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'users/new'
     get 'users/create'
     get 'logout' => "session#logout"
+    get 'stock/stock_quote' => 'stocks#stock_quote'
 
     # POST ROUTES
     post 'session/login_attempt' => 'session#login_attempt'

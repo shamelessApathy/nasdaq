@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20170204231633) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "stocks_id"
+    t.string  "name"
+    t.index ["stocks_id"], name: "index_sectors_on_stocks_id", using: :btree
+  end
+
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "portfolio_id"
     t.string   "ticker"

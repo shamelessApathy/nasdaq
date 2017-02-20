@@ -1,15 +1,24 @@
 class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
-
   # GET /portfolios
   # GET /portfolios.json
   def index
     @portfolios = Portfolio.all
   end
-
+  def stock_quote
+    @stocks = Stock.all
+    @string = ''
+    @stocks.each do |element|
+      @string = @string + element[:ticker] + ','
+    end
+    @quote = StockQuote::Stock.quote(@string)
+    return @quote
+  end
   # GET /portfolios/1
   # GET /portfolios/1.json
-  def show
+  def show 
+    @username = User.find(@portfolio.user)
+    @quote = stock_quote
     return self
   end
 

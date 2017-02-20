@@ -1,18 +1,44 @@
 <strong>Stocks</strong>
 <table class='stock-table'>
-	<tr>
-		<th>Ticker</th>
-		<th>Orig Price</th>
-    <th>Price</th>
-		<th>Quantity</th>
-		<th>Initial Cost</th>
-	</tr>
-  <% @portfolio.stocks.each do |element|%>
+  <colgroup>
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  </colgroup>
+  <tbody>
   	<tr>
-  		<td><%=element[:ticker]%></td>
-  		<td><%=element[:price]%></td>
-      <td>Placeholder</td>
-  		<td><%=element[:quantity]%></td>
-  		<td><%= element[:quantity] * element[:price]%>
+  		<th>Ticker</th>
+  		<th>Orig Price</th>
+      <th>Last Trade</th>
+  		<th>Quantity</th>
+      <th>Test Ticker</th>
+  		<th>Initial Cost</th>
+      <th>Change</th>
   	</tr>
-  	<% 	end   %>
+<% @portfolio.stocks.zip(@quote) %>
+<% @portfolio.stocks.zip(@quote).each do |stock, quote|%>
+<% @convert =quote.change.to_f %>
+<% @change_class = @convert >= 0 ? "positive" : "negative" %>
+    <tr>
+      <td><%=quote.symbol%></td>
+      <td><%=stock[:price]%></td>
+      <td><%=quote.last_trade_price_only%></td>
+      <td><%=stock[:quantity]%></td>
+      <td><%=stock[:ticker]%></td>
+      <td><%= stock[:quantity] * stock[:price]%></td>
+      <td class="<%= @change_class %>"><%= quote.change %></td>
+    </tr>
+    <%= @quote.each do |element|
+      element
+    end
+
+    %>
+<% end %>
+
+  </tbody>
+</table>

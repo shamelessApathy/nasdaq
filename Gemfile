@@ -35,8 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
  #yahoo finance
- gem 'yahoo-finance'
-
+# gem 'yahoo-finance'
+# Stock_quote gem
+gem 'stock_quote'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

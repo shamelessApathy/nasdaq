@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220044702) do
+ActiveRecord::Schema.define(version: 20170221200613) do
 
   create_table "portfolios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user"
+    t.integer  "user_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
+  end
+
+  create_table "portfolios_stocks", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "portfolio_id"
+    t.integer "stock_id"
+    t.integer "portfolios_id"
+    t.integer "stocks_id"
+    t.index ["portfolios_id"], name: "index_portfolios_stocks_on_portfolios_id", using: :btree
+    t.index ["stocks_id"], name: "index_portfolios_stocks_on_stocks_id", using: :btree
   end
 
   create_table "sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -26,16 +36,17 @@ ActiveRecord::Schema.define(version: 20170220044702) do
   end
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "portfolio_id"
     t.string   "ticker"
     t.decimal  "price",        precision: 10
     t.integer  "quantity"
     t.integer  "sector_id"
     t.boolean  "buy"
     t.boolean  "sell"
+    t.string   "company_name"
+    t.string   "user_comment"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id", using: :btree
+    t.index ["sector_id"], name: "index_stocks_on_sector_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sectors
     # RESOURCES
     resources :portfolios do
     resources :stocks  

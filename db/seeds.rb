@@ -26,8 +26,8 @@ Sector.create(name: 'Real Estate')
 user = User.create(username: 'demo', email: 'demo@demo.com', password: 'demo123')
 
 # Create demo Portoflio
-portfolio = Portfolio.create(name:'Demo Portfolio', user: user)
-
+#portfolio = Portfolio.create(name:'Demo Portfolio', user: user)
+p = Portfolio.create!(name:'Demo Portfolio', user: User.last)
 # Create stocks for demo Portfolio
 
 Stock.create(ticker:'MTN', price: '105.55', sector: sector)

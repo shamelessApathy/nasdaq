@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221200613) do
+ActiveRecord::Schema.define(version: 20170222071043) do
+
+  create_table "portfolio_stocks", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "stock_id"
+    t.integer  "portfolio_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "portfolios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -18,15 +25,6 @@ ActiveRecord::Schema.define(version: 20170221200613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
-  end
-
-  create_table "portfolios_stocks", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "portfolio_id"
-    t.integer "stock_id"
-    t.integer "portfolios_id"
-    t.integer "stocks_id"
-    t.index ["portfolios_id"], name: "index_portfolios_stocks_on_portfolios_id", using: :btree
-    t.index ["stocks_id"], name: "index_portfolios_stocks_on_stocks_id", using: :btree
   end
 
   create_table "sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

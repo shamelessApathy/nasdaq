@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :portfolios
 	attr_accessor :password
 	EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 	validates :username, :presence=>true, :uniqueness => true, :length => { :in => 3..20 }

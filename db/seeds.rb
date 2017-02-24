@@ -30,4 +30,4 @@ user = User.create(username: 'demo', email: 'demo@demo.com', password: 'demo123'
 p = Portfolio.create!(name:'Demo Portfolio', user: User.last)
 # Create stocks for demo Portfolio
 
-Stock.create(ticker:'MTN', price: '105.55', sector: sector)
+Stock.create(ticker:'MTN', sector: sector)

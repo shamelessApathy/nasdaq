@@ -1,0 +1,45 @@
+<%= form_for(@portfolio_stock) do |f| %>
+  <% if @portfolio_stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio_stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+      <% @portfolio_stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.hidden_field :portfolio_id, value: @portfolio.id %>
+<div class='field'>
+<%= f.label 'Stock to Add' %>
+<%= f.select(:stock_id) do %>
+<% @stocks_array = Stock.all.map { |el| [el.ticker, el.id] } %>
+<%= options_for_select(@stocks_array) %>
+  <% end %>
+  </div>
+
+<div class='field'>
+	<%= f.label :price %>
+	<%= f.text_field :price%>
+</div>
+
+<div class='field'>
+	<%= f.label :quantity %>
+	<%= f.number_field :quantity %>
+</div>
+
+<div class='field'>
+	<%= f.label :user_comment %>
+	<%= f.text_field :user_comment %>
+</div>
+    <div class="field">
+    <%= f.label :buy %>
+    <%= f.radio_button :buy , 'buy'  %>
+    <%= f.label :sell %>
+    <%= f.radio_button :sell, 'sell' %>
+    </div>
+
+<%= f.submit %>
+
+  <% end %>

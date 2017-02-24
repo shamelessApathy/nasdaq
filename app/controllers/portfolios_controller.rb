@@ -2,6 +2,8 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
   # GET /portfolios
   # GET /portfolios.json
+
+
   def index
     @portfolios = Portfolio.all
   end
@@ -20,6 +22,7 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1.json
   def show 
     @username = User.find(@portfolio.user)
+    @join = PortfolioStock.all
     @quote = stock_quote
     return self
   end
@@ -79,10 +82,6 @@ class PortfoliosController < ApplicationController
  def portfolio_params
       params.require(:portfolio).permit(:user, :name)
     end
-  def add_stock
-    @stock = Stock.new
-    render 'add_stock'
-  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_portfolio

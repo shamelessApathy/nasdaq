@@ -1,16 +1,6 @@
 class StocksController < ApplicationController
-  #before_action :set_stock, only: [:show, :edit, :update, :destroy]
+  before_action :set_stock, only: [:show, :edit, :update, :destroy]
   include ApplicationHelper
-
-  #Render Add Stock Form
-  def add_stock
-
-  end
-
-  def stock_quote
-  @quote = StockQuote::Stock.quote('mtn')
-  return @quote.response_code
-  end
 
   # GET /stocks
   # GET /stocks.json
@@ -21,7 +11,7 @@ class StocksController < ApplicationController
   # GET /stocks/1
   # GET /stocks/1.json
   def show
-    @notsaved = stock_quote
+
   end
 
   # GET /stocks/new
@@ -83,6 +73,6 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:ticker, :price, :buy, :sell, :quantity, :sector_id)
+      params.require(:stock).permit(:ticker, :sector_id)
     end
 end

@@ -15,8 +15,13 @@ ActiveRecord::Schema.define(version: 20170222071043) do
   create_table "portfolio_stocks", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "stock_id"
     t.integer  "portfolio_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.decimal  "price",        precision: 10
+    t.integer  "quantity"
+    t.boolean  "buy"
+    t.boolean  "sell"
+    t.string   "user_comment"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "portfolios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -35,15 +40,10 @@ ActiveRecord::Schema.define(version: 20170222071043) do
 
   create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "ticker"
-    t.decimal  "price",        precision: 10
-    t.integer  "quantity"
     t.integer  "sector_id"
-    t.boolean  "buy"
-    t.boolean  "sell"
     t.string   "company_name"
-    t.string   "user_comment"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["sector_id"], name: "index_stocks_on_sector_id", using: :btree
   end
 

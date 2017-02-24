@@ -15,27 +15,6 @@
     <%= f.label :ticker %>
     <%= f.text_field :ticker %>
   </div>
-
-    <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </div>
-
-    <div class='field'>
-    <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
-
-    <div class="field">
-    <%= f.label :buy %>
-    <%= f.radio_button :buy , 'buy'  %>
-    <%= f.label :sell %>
-    <%= f.radio_button :sell, 'sell' %>
-    </div>
-<%= f.label 'Portfolio' %>
-<%= f.select(:portfolio_id) do %>
-<% portfolios_array = Portfolio.all.map { |portfolio| [portfolio.name, portfolio.id] } %>
-<%= options_for_select(portfolios_array) %>
-<% end %>
 <%= f.label 'Sector' %>
 <%= f.select(:sector_id) do %>
 <% sectors_array = Sector.all.map { |sector| [sector.name, sector.id] } %>

@@ -1,22 +1,10 @@
 
 <div class='container'>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @username.username%>
-</p>
-<p>
-  <strong>Name:</strong>
-  <%= @portfolio.name %>
-</p>
-<% if @stocks.count > 0 %>
-<%= render "stocks/table" %>
-<% end %>
-
+<%= @join.inspect %>
+<br>
  
  
-<%= link_to 'Add Stock ', "#{@portfolio.id}/stocks/new" %>|
-<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
-<%= link_to 'Back', portfolios_path %>
+<%= link_to 'Add Stock ', "#{@portfolio.id}/add_stock" %>|
+
 </div>

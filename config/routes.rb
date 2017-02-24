@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   resources :sectors
     # RESOURCES
-    resources :portfolios do
-    resources :stocks  
-    end
+    resources :portfolios
     resources :stocks 
-
+    resources :portfolio_stocks
     # GET ROUTES
     get '/' => 'session#home'
   	get 'logged_out' => "session#logged_out"
@@ -14,6 +12,9 @@ Rails.application.routes.draw do
     get 'users/create'
     get 'logout' => "session#logout"
     get 'stock/stock_quote' => 'stocks#stock_quote'
+    get 'portfolio_stocks/:portfolio_id/add_stock' => 'portfolio_stocks#add_stock'
+    get "portfolio_stocks" => "portfolio_stocks#index"
+
 
     # POST ROUTES
     post 'session/login_attempt' => 'session#login_attempt'

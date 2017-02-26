@@ -1,0 +1,45 @@
+<strong>Stocks</strong>
+<table class='stock-table'>
+  <colgroup>
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  <col style="width:80px">
+  </colgroup>
+  <tbody>
+  	<tr>
+  		<th>Ticker</th>
+  		<th>Orig Price</th>
+      <th>Last Trade</th>
+  		<th>Quantity</th>
+  		<th>Initial Cost</th>
+  	</tr>
+<% if @trades.count > 1 %>
+<% @trades.zip(@prices) %>
+<% @trades.zip(@prices).each do |trade, quote|%>
+<% @convert =quote.change.to_f %>
+<% @change_class = @convert >= 0 ? "positive" : "negative" %>
+    <tr>
+      <td><%=quote.symbol%></td>
+      <td><%=trade[:price]%></td>
+      <td><%=quote.last_trade_price_only%></td>
+      <td><%=trade[:quantity]%></td>
+      <td><%= trade[:quantity] * trade[:price]%></td>
+    </tr>
+<% end %>
+<% else %>
+    <tr>
+      <td><%= @trades[0][:ticker] %></td>
+      <td><%= @trades[0][:price] %></td>
+      <td><%= @prices.last_trade_price_only %></td>
+      <td><%= @trades[0][:quantity] %></td>
+      <td><%= @trades[0][:quantity] * @trades[0][:price] %></td>
+<% end %>
+
+  </tbody>
+</table>

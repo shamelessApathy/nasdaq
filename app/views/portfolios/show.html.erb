@@ -10,11 +10,17 @@
   <strong>Name:</strong>
   <%= @portfolio.name %>
 </p>
-<%= render "stocks/table" %>
+
+<% if @trades.blank? %>
+	<h1>You haven't made any trades yet!</h1>
+<% end %>
+
+
+<%= render 'table' %>
 
  
  
-<%= link_to 'Add Stock ', "#{@portfolio.id}/stocks/new" %>|
+<%= link_to 'Make Trade', "#{@portfolio.id}/trades/new" %>|
 <%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
 <%= link_to 'Back', portfolios_path %>
 </div>

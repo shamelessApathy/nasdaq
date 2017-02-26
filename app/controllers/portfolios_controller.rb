@@ -5,20 +5,12 @@ class PortfoliosController < ApplicationController
   def index
     @portfolios = Portfolio.all
   end
-  def stock_quote
-    @stocks = Stock.all
-    @string = ''
-    @stocks.each do |element|
-      @string = @string + element[:ticker] + ','
-    end
-    @quote = StockQuote::Stock.quote(@string)
-    return @quote
-  end
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show 
+    @trades = Trade.all
+    @prices = helpers.get_quotes
     @username = User.find(@portfolio.user)
-    @quote = stock_quote
     return self
   end
 
@@ -75,7 +67,7 @@ class PortfoliosController < ApplicationController
     end
   end
  def portfolio_params
-      params.require(:portfolio).permit(:user, :name)
+      params.require(:portfolio).permit(:user, :name, :balance)
     end
   def add_stock
     @stock = Stock.new

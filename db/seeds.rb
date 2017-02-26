@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+user = User.create(username: 'demo', email: 'demo@demo.com', password: 'demo123')
+portfolio = Portfolio.create(user: user, balance: '10000', name: 'First Portfolio Seeded')
+Trade.create(portfolio: portfolio, ticker: 'PFE', quantity: '70', buy: true)

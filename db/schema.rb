@@ -13,28 +13,24 @@
 ActiveRecord::Schema.define(version: 20170204231633) do
 
   create_table "portfolios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user"
+    t.integer  "user_id"
+    t.integer  "balance"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_portfolios_on_user_id", using: :btree
   end
 
-  create_table "sectors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "stocks_id"
-    t.string  "name"
-    t.index ["stocks_id"], name: "index_sectors_on_stocks_id", using: :btree
-  end
-
-  create_table "stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "portfolio_id"
     t.string   "ticker"
-    t.decimal  "price",        precision: 10
+    t.decimal  "price",        precision: 5, scale: 2
     t.integer  "quantity"
     t.boolean  "buy"
     t.boolean  "sell"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id", using: :btree
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["portfolio_id"], name: "index_trades_on_portfolio_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

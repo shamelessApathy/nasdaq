@@ -14,7 +14,7 @@
   <tbody>
     <% @portfolios.each do |portfolio| %>
       <tr>
-        <td><%= portfolio.user %></td>
+        <td><%= portfolio.user.username %></td>
         <td><%= portfolio.name %></td>
         <td><%= link_to 'Show', portfolio %></td>
         <td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>

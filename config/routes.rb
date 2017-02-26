@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
     # RESOURCES
     resources :portfolios do
-    resources :stocks  
+    resources :trades
     end
-    resources :stocks 
+    resources :trades
+
 
     # GET ROUTES
     get '/' => 'session#home'
@@ -13,6 +14,8 @@ Rails.application.routes.draw do
     get 'users/create'
     get 'logout' => "session#logout"
     get 'stock/stock_quote' => 'stocks#stock_quote'
+    get 'portfolios/:portfolio_id/trades/new' => 'trades#new'
+    get 'trades/:ticker/test' => 'trades#test'
 
     # POST ROUTES
     post 'session/login_attempt' => 'session#login_attempt'

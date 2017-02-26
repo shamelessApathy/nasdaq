@@ -39,6 +39,9 @@ gem 'jbuilder', '~> 2.5'
 # Stock_quote gem
 gem 'stock_quote'
 
+# twitter's bootstrap
+gem 'bootstrap', '~> 4.0.0.alpha6'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

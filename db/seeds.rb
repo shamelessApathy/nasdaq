@@ -20,6 +20,9 @@ sector = Sector.create(name: 'Consumer Cyclical')
 Sector.create(name: 'Financial Services')
 Sector.create(name: 'Real Estate')
 
+Stock.create(ticker: "T", sector_id:"1");
+Stock.create(ticker: "VZ", sector_id:"1");
+
 
 
 # Create demo User

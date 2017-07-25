@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get 'users/create'
     get 'logout' => "session#logout"
     get 'stock/stock_quote' => 'stocks#stock_quote'
-    get 'portfolio_stocks/:portfolio_id/add_stock' => 'portfolio_stocks#add_stock'
+    get '/portfolios/:portfolio_id/add_stock' => 'portfolio_stocks#add_stock'
     get "portfolio_stocks" => "portfolio_stocks#index"
 
 

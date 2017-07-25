@@ -15,6 +15,12 @@
   			link_to 'Portfolio', '/portfolios', class:"nav_link"
   		end
   	%>
+    <ul>
+      <li><a href="/login">LOGIN</a></li>
+      <li><a href="/users">USERS</a></li>
+      <li><a href="/stocks">STOCKS</a></li>
+      <li><a href="/portfolios">PORTFOLIOS</a></li>
+    </ul>
   	<%= 
   		if !session[:user]
         link_to 'Log In', '/login', class:"login_link"

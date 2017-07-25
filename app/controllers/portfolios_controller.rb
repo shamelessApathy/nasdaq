@@ -80,7 +80,7 @@ class PortfoliosController < ApplicationController
     end
   end
  def portfolio_params
-      params.require(:portfolio).permit(:user, :name)
+      params.require(:portfolio).permit(:user_id, :name)
     end
   private
     # Use callbacks to share common setup or constraints between actions.

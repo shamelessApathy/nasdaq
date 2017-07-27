@@ -16,12 +16,14 @@ Sector.create(name: 'Consumer Defensive')
 Sector.create(name: 'Healthcare')
 Sector.create(name: 'Utilities')
 Sector.create(name: 'Basic Materials')
-sector = Sector.create(name: 'Consumer Cyclical')
+Sector.create(name: 'Consumer Cyclical')
 Sector.create(name: 'Financial Services')
 Sector.create(name: 'Real Estate')
 
-Stock.create(ticker: "T", sector_id:"1");
-Stock.create(ticker: "VZ", sector_id:"1");
+t = Stock.create!(ticker: "T", sector_id:"1");
+vz = Stock.create!(ticker: "VZ", sector_id:"1");
+mtn = Stock.create!(ticker:'MTN', sector_id: "9")
+pfe = Stock.create!(ticker:'PFE', sector_id: "6")
 
 
 
@@ -32,5 +34,7 @@ user = User.create(username: 'demo', email: 'demo@demo.com', password: 'demo123'
 #portfolio = Portfolio.create(name:'Demo Portfolio', user: user)
 p = Portfolio.create!(name:'Demo Portfolio', user: User.last)
 # Create stocks for demo Portfolio
+PortfolioStock.create(portfolio:p, stock:t, price:'25.00', quantity:100, buy:true, sell:nil, user_comment:"this is the demo seeder")
+PortfolioStock.create(portfolio:p, stock:vz, price:'35.00', quantity:100, buy:true, sell:nil, user_comment:"this is the demo seeder")
+PortfolioStock.create(portfolio:p, stock:pfe, price:'15.00', quantity:100, buy:true, sell:nil, user_comment:"this is the demo seeder")
 
-Stock.create(ticker:'MTN', sector: sector)

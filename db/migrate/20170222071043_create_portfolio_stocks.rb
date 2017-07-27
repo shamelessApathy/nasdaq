@@ -2,8 +2,8 @@ class CreatePortfolioStocks < ActiveRecord::Migration[5.0]
   def change
 		create_table :portfolio_stocks, :id => false do |t|
  
-     		t.integer :stock_id
-    		t.integer :portfolio_id
+     		t.belongs_to :stock, index:true
+    		t.belongs_to :portfolio, index:true
     		t.decimal :price
         	t.integer :quantity
         	t.boolean :buy

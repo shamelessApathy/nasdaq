@@ -1,10 +1,24 @@
 
 <div class='container'>
 <p id="notice"><%= notice %></p>
+<table>
+<thead>
+<col width="30%">
+<col width="30%">
+<col width="30%">
+<th>Ticker</th>
+<th>Sector</th>
+<th>Price</th>
+</thead>
+<tbody>
 <%= @join.inspect %>
+</tbody>
+
+
 <br>
  
  
 <%= link_to 'Add Stock ', "#{@portfolio.id}/add_stock" %>|
 
 </div>
+ 
